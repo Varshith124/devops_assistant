@@ -1,6 +1,6 @@
 def div():
     print("thi is division meth")
-    return 3/1
+    return 3/0
 
 def check():
     return "hi"
