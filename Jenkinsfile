@@ -1,9 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout'){
-            steps{
-                checkout scm
+         stage('Checkout Old Commit') {
+            steps {
+                script {
+                    // Get the commit from the stable build (passed as parameter)
+                    checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: params.GIT_COMMIT]],
+                        extensions: [],
+                        userRemoteConfigs: [[url: 'https://github.com/your/repo.git']]
+                    ])
+                }
             }
         }
         stage('Run python Script') {
