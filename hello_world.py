@@ -3,7 +3,7 @@ def div():
     return 3/0
 
 def check():
-    return "h
+    return "hi"
 
 if __name__ == "__main__": 
     div()
